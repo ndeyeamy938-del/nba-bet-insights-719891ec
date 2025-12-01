@@ -263,11 +263,11 @@ export function MatchPredictionModal({
                           {game?.homeTeam}
                         </span>
                         <span className="text-sm font-bold text-purple-600 dark:text-purple-400">
-                          {Math.max(0, 100 - prediction.win_probability_home).toFixed(0)}%
+                          {prediction.win_probability_home.toFixed(0)}%
                         </span>
                       </div>
                       <Progress
-                        value={Math.max(0, 100 - prediction.win_probability_home)}
+                        value={prediction.win_probability_home}
                         className="h-2"
                       />
                     </div>
@@ -275,14 +275,14 @@ export function MatchPredictionModal({
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-sm font-bold text-amber-600 dark:text-amber-400">
-                          {prediction.win_probability_home.toFixed(0)}%
+                          {Math.max(0, 100 - prediction.win_probability_home).toFixed(0)}%
                         </span>
                         <span className="text-sm font-medium text-amber-600 dark:text-amber-400">
                           {game?.awayTeam}
                         </span>
                       </div>
                       <Progress
-                        value={prediction.win_probability_home}
+                        value={Math.max(0, 100 - prediction.win_probability_home)}
                         className="h-2"
                       />
                     </div>
