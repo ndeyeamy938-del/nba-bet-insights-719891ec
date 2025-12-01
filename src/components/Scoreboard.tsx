@@ -83,12 +83,12 @@ export function Scoreboard() {
                 {date}
               </span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
               {dateGames.map((game) => (
                 <div
                   key={game.gameId}
                   onClick={() => handleGameCardClick(game)}
-                  className="bg-secondary/50 p-4 rounded-lg border border-border hover:border-primary/50 transition-all hover:shadow-lg cursor-pointer relative flex flex-col"
+                  className="bg-gradient-to-br from-secondary/60 to-secondary/40 p-3 rounded-lg border border-border/80 hover:border-primary/70 transition-all hover:shadow-md hover:scale-105 cursor-pointer relative flex flex-col group"
                 >
                   {game.isLive && (
                     <div className="absolute top-2 right-2 flex items-center gap-1">
@@ -99,39 +99,39 @@ export function Scoreboard() {
                       <span className="text-xs font-bold text-red-500">LIVE</span>
                     </div>
                   )}
-                  <div className="flex flex-col gap-2 flex-1">
+                  <div className="flex flex-col gap-1.5 flex-1">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="font-display font-semibold text-foreground text-sm flex-1 min-w-0 truncate" title={game.awayTeam}>
+                      <span className="font-display font-semibold text-foreground text-xs flex-1 min-w-0 truncate" title={game.awayTeam}>
                         {game.awayTeam}
                       </span>
                       {game.awayScore !== undefined && (
-                        <span className="text-2xl font-bold text-primary flex-shrink-0">{game.awayScore}</span>
+                        <span className="text-xl font-bold text-primary flex-shrink-0">{game.awayScore}</span>
                       )}
                     </div>
-                    <div className="text-xs text-muted-foreground text-center">@</div>
+                    <div className="text-[10px] text-muted-foreground text-center">vs</div>
                     <div className="flex items-center justify-between gap-2">
-                      <span className="font-display font-semibold text-foreground text-sm flex-1 min-w-0 truncate" title={game.homeTeam}>
+                      <span className="font-display font-semibold text-foreground text-xs flex-1 min-w-0 truncate" title={game.homeTeam}>
                         {game.homeTeam}
                       </span>
                       {game.homeScore !== undefined && (
-                        <span className="text-2xl font-bold text-primary flex-shrink-0">{game.homeScore}</span>
+                        <span className="text-xl font-bold text-primary flex-shrink-0">{game.homeScore}</span>
                       )}
                     </div>
-                    <div className="text-xs text-muted-foreground text-center mt-2 font-medium">
+                    <div className="text-[10px] text-muted-foreground text-center mt-1 font-medium">
                       {game.status}
                     </div>
                   </div>
-                  <div className="mt-3 pt-3 border-t border-border">
+                  <div className="mt-2 pt-2 border-t border-border/50">
                     <Button
                       size="sm"
                       variant="outline"
-                      className="w-full text-xs h-8 gap-1.5 hover:bg-purple-500/20 hover:border-purple-500/50"
+                      className="w-full text-[11px] h-7 gap-1 hover:bg-purple-500/20 hover:border-purple-500/50 transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleAnalyzeClick(game);
                       }}
                     >
-                      <Brain className="h-3.5 w-3.5" />
+                      <Brain className="h-3 w-3" />
                       Analyser
                     </Button>
                   </div>
